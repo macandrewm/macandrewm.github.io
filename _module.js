@@ -338,6 +338,14 @@ function set_data(text, data) {
         return;
     text.data = data;
 }
+function set_style(node, key, value, important) {
+    if (value == null) {
+        node.style.removeProperty(key);
+    }
+    else {
+        node.style.setProperty(key, value, important ? 'important' : '');
+    }
+}
 function custom_event(type, detail, { bubbles = false, cancelable = false } = {}) {
     const e = document.createEvent('CustomEvent');
     e.initCustomEvent(type, bubbles, cancelable, detail);
@@ -755,6 +763,7 @@ function create_fragment(ctx) {
 	let script;
 	let t0;
 	let link1;
+	let link2;
 	let style;
 	let t1;
 
@@ -766,12 +775,13 @@ function create_fragment(ctx) {
 			script = element("script");
 			t0 = text("(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\nnew Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\nj=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\n'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\n})(window,document,'script','dataLayer','GTM-PCFCGW3');");
 			link1 = element("link");
+			link2 = element("link");
 			style = element("style");
-			t1 = text("@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\");\n  a{\n    cursor: inherit;\n    transition:all 0.4s linear;\n  }\n  a:hover {\n     transform: scale(1.1)\n  }\n\n#page {\n  background-color: #CBE3EC;\n  background-image: url(\"https://edqjpryjjnqukkwhzcjp.supabase.co/storage/v1/object/public/images/water_bg.png?t=2023-10-15T23%3A27%3A41.477Z\");\n  background-position: top left;\n  background-size: cover;\n  background-attachment: scroll;\n  background-repeat: repeat; \n}\n\n@import url(\"https://use.typekit.net/bpd6gjo.css\")\n\n#page {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n\n[data-block]{\n  position: unset !important;\n  min-height: unset !important;\n}\n\n:root {\n  --white: #f4f4f4;\n  --red: #c42727;\n  --taupe: #e1dac1;\n  --brown: #3e281a;\n  --green: #304d2d;\n  --blue: #112e45;\n}\n\nbutton {\n  font-family: \"canto-brush\", serif;\n  font-size: 36px;\n  text-transform: lowercase;\n}");
+			t1 = text("@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\");\n  a{\n    cursor: inherit;\n    transition:all 0.4s linear;\n  }\n  a:hover {\n     transform: scale(1.1)\n  }\n\n#page {\n  background-color: var(--taupe);\n  background-image: url(\"https://edqjpryjjnqukkwhzcjp.supabase.co/storage/v1/object/public/images/textured_beige.png?t=2023-10-16T18%3A14%3A36.512Z\");\n  background-position: top left;\n  background-size: cover;\n  background-attachment: scroll;\n  background-repeat: repeat;\n\n  height: 100vh;\n  max-height: 100%;\n  padding: 16px 0;\n}\n\n@import url(\"https://use.typekit.net/bpd6gjo.css\");\n#page {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n\n[data-block]{\n  position: unset !important;\n  min-height: unset !important;\n}\n\n:root {\n  --white: #f4f4f4;\n  --red: #c42727;\n  --taupe: #e1dac1;\n  --brown: #3e281a;\n  --green: #304d2d;\n  --blue: #112e45;\n}\n\nbutton {\n  font-family: \"canto-brush\", serif;\n  font-size: 36px;\n  font-style:italic;\n  text-transform: lowercase;\n}");
 			this.h();
 		},
 		l(nodes) {
-			const head_nodes = head_selector('svelte-mttzw7', document.head);
+			const head_nodes = head_selector('svelte-tvy94z', document.head);
 			link0 = claim_element(head_nodes, "LINK", { rel: true, type: true, href: true });
 			meta0 = claim_element(head_nodes, "META", { name: true, content: true });
 			meta1 = claim_element(head_nodes, "META", { name: true, content: true });
@@ -779,10 +789,11 @@ function create_fragment(ctx) {
 			var script_nodes = children(script);
 			t0 = claim_text(script_nodes, "(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\nnew Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\nj=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\n'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\n})(window,document,'script','dataLayer','GTM-PCFCGW3');");
 			script_nodes.forEach(detach);
-			link1 = claim_element(head_nodes, "LINK", { rel: true, href: true });
+			link1 = claim_element(head_nodes, "LINK", { href: true, rel: true, type: true });
+			link2 = claim_element(head_nodes, "LINK", { rel: true, href: true });
 			style = claim_element(head_nodes, "STYLE", {});
 			var style_nodes = children(style);
-			t1 = claim_text(style_nodes, "@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\");\n  a{\n    cursor: inherit;\n    transition:all 0.4s linear;\n  }\n  a:hover {\n     transform: scale(1.1)\n  }\n\n#page {\n  background-color: #CBE3EC;\n  background-image: url(\"https://edqjpryjjnqukkwhzcjp.supabase.co/storage/v1/object/public/images/water_bg.png?t=2023-10-15T23%3A27%3A41.477Z\");\n  background-position: top left;\n  background-size: cover;\n  background-attachment: scroll;\n  background-repeat: repeat; \n}\n\n@import url(\"https://use.typekit.net/bpd6gjo.css\")\n\n#page {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n\n[data-block]{\n  position: unset !important;\n  min-height: unset !important;\n}\n\n:root {\n  --white: #f4f4f4;\n  --red: #c42727;\n  --taupe: #e1dac1;\n  --brown: #3e281a;\n  --green: #304d2d;\n  --blue: #112e45;\n}\n\nbutton {\n  font-family: \"canto-brush\", serif;\n  font-size: 36px;\n  text-transform: lowercase;\n}");
+			t1 = claim_text(style_nodes, "@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\");\n  a{\n    cursor: inherit;\n    transition:all 0.4s linear;\n  }\n  a:hover {\n     transform: scale(1.1)\n  }\n\n#page {\n  background-color: var(--taupe);\n  background-image: url(\"https://edqjpryjjnqukkwhzcjp.supabase.co/storage/v1/object/public/images/textured_beige.png?t=2023-10-16T18%3A14%3A36.512Z\");\n  background-position: top left;\n  background-size: cover;\n  background-attachment: scroll;\n  background-repeat: repeat;\n\n  height: 100vh;\n  max-height: 100%;\n  padding: 16px 0;\n}\n\n@import url(\"https://use.typekit.net/bpd6gjo.css\");\n#page {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n\n[data-block]{\n  position: unset !important;\n  min-height: unset !important;\n}\n\n:root {\n  --white: #f4f4f4;\n  --red: #c42727;\n  --taupe: #e1dac1;\n  --brown: #3e281a;\n  --green: #304d2d;\n  --blue: #112e45;\n}\n\nbutton {\n  font-family: \"canto-brush\", serif;\n  font-size: 36px;\n  font-style:italic;\n  text-transform: lowercase;\n}");
 			style_nodes.forEach(detach);
 			head_nodes.forEach(detach);
 			this.h();
@@ -796,8 +807,11 @@ function create_fragment(ctx) {
 			attr(meta0, "content", "elio");
 			attr(meta1, "name", "viewport");
 			attr(meta1, "content", "width=device-width, initial-scale=1.0");
+			attr(link1, "href", "//cdn-images.mailchimp.com/embedcode/classic-061523.css");
 			attr(link1, "rel", "stylesheet");
-			attr(link1, "href", "https://use.typekit.net/bpd6gjo.css");
+			attr(link1, "type", "text/css");
+			attr(link2, "rel", "stylesheet");
+			attr(link2, "href", "https://use.typekit.net/bpd6gjo.css");
 		},
 		m(target, anchor) {
 			append_hydration(document.head, link0);
@@ -806,6 +820,7 @@ function create_fragment(ctx) {
 			append_hydration(document.head, script);
 			append_hydration(script, t0);
 			append_hydration(document.head, link1);
+			append_hydration(document.head, link2);
 			append_hydration(document.head, style);
 			append_hydration(style, t1);
 		},
@@ -818,6 +833,7 @@ function create_fragment(ctx) {
 			detach(meta1);
 			detach(script);
 			detach(link1);
+			detach(link2);
 			detach(style);
 		}
 	};
@@ -837,6 +853,8 @@ function create_fragment$1(ctx) {
 	let div0;
 	let header;
 	let h1;
+	let t0;
+	let t1;
 	let img;
 	let img_src_value;
 
@@ -846,6 +864,8 @@ function create_fragment$1(ctx) {
 			div0 = element("div");
 			header = element("header");
 			h1 = element("h1");
+			t0 = text("ELIO");
+			t1 = space();
 			img = element("img");
 			this.h();
 		},
@@ -856,28 +876,31 @@ function create_fragment$1(ctx) {
 			var div0_nodes = children(div0);
 			header = claim_element(div0_nodes, "HEADER", { class: true });
 			var header_nodes = children(header);
-			h1 = claim_element(header_nodes, "H1", {});
+			h1 = claim_element(header_nodes, "H1", { class: true });
 			var h1_nodes = children(h1);
+			t0 = claim_text(h1_nodes, "ELIO");
+			h1_nodes.forEach(detach);
+			t1 = claim_space(header_nodes);
 
-			img = claim_element(h1_nodes, "IMG", {
+			img = claim_element(header_nodes, "IMG", {
 				src: true,
 				alt: true,
 				width: true,
 				class: true
 			});
 
-			h1_nodes.forEach(detach);
 			header_nodes.forEach(detach);
 			div0_nodes.forEach(detach);
 			div1_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
+			attr(h1, "class", "svelte-1htky80");
 			if (!src_url_equal(img.src, img_src_value = "https://edqjpryjjnqukkwhzcjp.supabase.co/storage/v1/object/public/images/elio_branch_nowhite.png?t=2023-10-11T23%3A07%3A10.681Z")) attr(img, "src", img_src_value);
-			attr(img, "alt", "Elio");
+			attr(img, "alt", "ELIO - MUSIC LOGO");
 			attr(img, "width", "109%");
-			attr(img, "class", "svelte-c2horl");
-			attr(header, "class", "svelte-c2horl");
+			attr(img, "class", "svelte-1htky80");
+			attr(header, "class", "svelte-1htky80");
 			attr(div0, "class", "component");
 			attr(div1, "class", "section");
 			attr(div1, "id", "section-5e211764-a226-4f5d-b7b6-a4b62aeaeff9");
@@ -887,7 +910,9 @@ function create_fragment$1(ctx) {
 			append_hydration(div1, div0);
 			append_hydration(div0, header);
 			append_hydration(header, h1);
-			append_hydration(h1, img);
+			append_hydration(h1, t0);
+			append_hydration(header, t1);
+			append_hydration(header, img);
 		},
 		p: noop,
 		i: noop,
@@ -1102,8 +1127,8 @@ function create_fragment$3(ctx) {
 			this.h();
 		},
 		h() {
-			if (!src_url_equal(img.src, img_src_value = "https://edqjpryjjnqukkwhzcjp.supabase.co/storage/v1/object/public/images/swim.png?t=2023-10-15T23%3A45%3A44.197Z")) attr(img, "src", img_src_value);
-			attr(img, "alt", "Elio swimming");
+			if (!src_url_equal(img.src, img_src_value = "https://edqjpryjjnqukkwhzcjp.supabase.co/storage/v1/object/public/images/elio_music-press_shot.png?t=2023-10-16T18%3A10%3A40.759Z")) attr(img, "src", img_src_value);
+			attr(img, "alt", "ELIO - PRESS SHOT");
 			attr(img, "width", "109%");
 			attr(img, "class", "svelte-ofha1n");
 			attr(div0, "class", "svelte-ofha1n");
@@ -3229,7 +3254,317 @@ class Component$5 extends SvelteComponent {
 
 /* generated by Svelte v3.58.0 */
 
+function create_fragment$6(ctx) {
+	let div11;
+	let div10;
+	let div9;
+	let div8;
+	let form;
+	let div7;
+	let h2;
+	let t0;
+	let t1;
+	let div0;
+	let label;
+	let t2;
+	let span0;
+	let t3;
+	let input0;
+	let span1;
+	let t4;
+	let div3;
+	let div1;
+	let t5;
+	let div2;
+	let t6;
+	let div4;
+	let t7;
+	let input1;
+	let t8;
+	let div6;
+	let div5;
+	let input2;
+	let t9;
+	let p;
+	let a;
+	let span2;
+	let t10;
+	let script0;
+	let script0_src_value;
+	let script1;
+	let t11;
+
+	return {
+		c() {
+			div11 = element("div");
+			div10 = element("div");
+			div9 = element("div");
+			div8 = element("div");
+			form = element("form");
+			div7 = element("div");
+			h2 = element("h2");
+			t0 = text("join elio's newsletter!");
+			t1 = space();
+			div0 = element("div");
+			label = element("label");
+			t2 = text("Email Address ");
+			span0 = element("span");
+			t3 = text("*");
+			input0 = element("input");
+			span1 = element("span");
+			t4 = space();
+			div3 = element("div");
+			div1 = element("div");
+			t5 = space();
+			div2 = element("div");
+			t6 = space();
+			div4 = element("div");
+			t7 = text("/* real people should not fill this in and expect good things - do not remove this or risk form bot signups */\n        ");
+			input1 = element("input");
+			t8 = space();
+			div6 = element("div");
+			div5 = element("div");
+			input2 = element("input");
+			t9 = space();
+			p = element("p");
+			a = element("a");
+			span2 = element("span");
+			t10 = space();
+			script0 = element("script");
+			script1 = element("script");
+			t11 = text("(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);");
+			this.h();
+		},
+		l(nodes) {
+			div11 = claim_element(nodes, "DIV", { class: true, id: true });
+			var div11_nodes = children(div11);
+			div10 = claim_element(div11_nodes, "DIV", { class: true });
+			var div10_nodes = children(div10);
+			div9 = claim_element(div10_nodes, "DIV", { id: true, class: true });
+			var div9_nodes = children(div9);
+			div8 = claim_element(div9_nodes, "DIV", { id: true, class: true });
+			var div8_nodes = children(div8);
+
+			form = claim_element(div8_nodes, "FORM", {
+				action: true,
+				method: true,
+				id: true,
+				name: true,
+				class: true,
+				target: true
+			});
+
+			var form_nodes = children(form);
+			div7 = claim_element(form_nodes, "DIV", { id: true, class: true });
+			var div7_nodes = children(div7);
+			h2 = claim_element(div7_nodes, "H2", { class: true });
+			var h2_nodes = children(h2);
+			t0 = claim_text(h2_nodes, "join elio's newsletter!");
+			h2_nodes.forEach(detach);
+			t1 = claim_space(div7_nodes);
+			div0 = claim_element(div7_nodes, "DIV", { class: true });
+			var div0_nodes = children(div0);
+			label = claim_element(div0_nodes, "LABEL", { for: true, class: true });
+			var label_nodes = children(label);
+			t2 = claim_text(label_nodes, "Email Address ");
+			span0 = claim_element(label_nodes, "SPAN", { class: true });
+			var span0_nodes = children(span0);
+			t3 = claim_text(span0_nodes, "*");
+			span0_nodes.forEach(detach);
+			label_nodes.forEach(detach);
+
+			input0 = claim_element(div0_nodes, "INPUT", {
+				type: true,
+				name: true,
+				class: true,
+				id: true
+			});
+
+			span1 = claim_element(div0_nodes, "SPAN", { id: true, class: true });
+			children(span1).forEach(detach);
+			div0_nodes.forEach(detach);
+			t4 = claim_space(div7_nodes);
+			div3 = claim_element(div7_nodes, "DIV", { id: true, class: true });
+			var div3_nodes = children(div3);
+			div1 = claim_element(div3_nodes, "DIV", { class: true, id: true, style: true });
+			children(div1).forEach(detach);
+			t5 = claim_space(div3_nodes);
+			div2 = claim_element(div3_nodes, "DIV", { class: true, id: true, style: true });
+			children(div2).forEach(detach);
+			div3_nodes.forEach(detach);
+			t6 = claim_space(div7_nodes);
+			div4 = claim_element(div7_nodes, "DIV", { "aria-hidden": true, style: true });
+			var div4_nodes = children(div4);
+			t7 = claim_text(div4_nodes, "/* real people should not fill this in and expect good things - do not remove this or risk form bot signups */\n        ");
+
+			input1 = claim_element(div4_nodes, "INPUT", {
+				type: true,
+				name: true,
+				tabindex: true,
+				class: true
+			});
+
+			div4_nodes.forEach(detach);
+			t8 = claim_space(div7_nodes);
+			div6 = claim_element(div7_nodes, "DIV", { class: true });
+			var div6_nodes = children(div6);
+			div5 = claim_element(div6_nodes, "DIV", { class: true });
+			var div5_nodes = children(div5);
+
+			input2 = claim_element(div5_nodes, "INPUT", {
+				type: true,
+				name: true,
+				id: true,
+				class: true
+			});
+
+			t9 = claim_space(div5_nodes);
+			p = claim_element(div5_nodes, "P", {});
+			var p_nodes = children(p);
+			a = claim_element(p_nodes, "A", { href: true, title: true });
+			var a_nodes = children(a);
+			span2 = claim_element(a_nodes, "SPAN", { style: true });
+			var span2_nodes = children(span2);
+			span2_nodes.forEach(detach);
+			a_nodes.forEach(detach);
+			p_nodes.forEach(detach);
+			div5_nodes.forEach(detach);
+			div6_nodes.forEach(detach);
+			div7_nodes.forEach(detach);
+			form_nodes.forEach(detach);
+			div8_nodes.forEach(detach);
+			t10 = claim_space(div9_nodes);
+			script0 = claim_element(div9_nodes, "SCRIPT", { type: true, src: true });
+			var script0_nodes = children(script0);
+			script0_nodes.forEach(detach);
+			script1 = claim_element(div9_nodes, "SCRIPT", { type: true });
+			var script1_nodes = children(script1);
+			t11 = claim_text(script1_nodes, "(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);");
+			script1_nodes.forEach(detach);
+			div9_nodes.forEach(detach);
+			div10_nodes.forEach(detach);
+			div11_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(h2, "class", "svelte-3c4sne");
+			attr(span0, "class", "asterisk");
+			attr(label, "for", "mce-EMAIL");
+			attr(label, "class", "svelte-3c4sne");
+			attr(input0, "type", "email");
+			attr(input0, "name", "EMAIL");
+			attr(input0, "class", "required email svelte-3c4sne");
+			attr(input0, "id", "mce-EMAIL");
+			input0.required = "";
+			input0.value = "";
+			attr(span1, "id", "mce-EMAIL-HELPERTEXT");
+			attr(span1, "class", "helper_text svelte-3c4sne");
+			attr(div0, "class", "mc-field-group");
+			attr(div1, "class", "response");
+			attr(div1, "id", "mce-error-response");
+			set_style(div1, "display", "none");
+			attr(div2, "class", "response");
+			attr(div2, "id", "mce-success-response");
+			set_style(div2, "display", "none");
+			attr(div3, "id", "mce-responses");
+			attr(div3, "class", "clear foot svelte-3c4sne");
+			attr(input1, "type", "text");
+			attr(input1, "name", "b_de515f9d4ec01a5ace57e3584_6bb8ae204b");
+			attr(input1, "tabindex", "-1");
+			input1.value = "";
+			attr(input1, "class", "svelte-3c4sne");
+			attr(div4, "aria-hidden", "true");
+			set_style(div4, "position", "absolute");
+			set_style(div4, "left", "-5000px");
+			attr(input2, "type", "submit");
+			attr(input2, "name", "subscribe");
+			attr(input2, "id", "mc-embedded-subscribe");
+			attr(input2, "class", "button svelte-3c4sne");
+			input2.value = "Subscribe";
+			set_style(span2, "display", "inline-block");
+			set_style(span2, "background-color", "transparent");
+			set_style(span2, "border-radius", "4px");
+			attr(a, "href", "http://eepurl.com/iBWsuA");
+			attr(a, "title", "Mailchimp - email marketing made easy and fun");
+			attr(div5, "class", "clear foot svelte-3c4sne");
+			attr(div6, "class", "optionalParent");
+			attr(div7, "id", "mc_embed_signup_scroll");
+			attr(div7, "class", "svelte-3c4sne");
+			attr(form, "action", "https://elioirl.us21.list-manage.com/subscribe/post?u=de515f9d4ec01a5ace57e3584&id=6bb8ae204b&f_id=00eed8e6f0");
+			attr(form, "method", "post");
+			attr(form, "id", "mc-embedded-subscribe-form");
+			attr(form, "name", "mc-embedded-subscribe-form");
+			attr(form, "class", "validate svelte-3c4sne");
+			attr(form, "target", "_blank");
+			attr(div8, "id", "mc_embed_signup");
+			attr(div8, "class", "svelte-3c4sne");
+			attr(script0, "type", "text/javascript");
+			if (!src_url_equal(script0.src, script0_src_value = "//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js")) attr(script0, "src", script0_src_value);
+			attr(script1, "type", "text/javascript");
+			attr(div9, "id", "mc_embed_shell");
+			attr(div9, "class", "svelte-3c4sne");
+			attr(div10, "class", "component");
+			attr(div11, "class", "section");
+			attr(div11, "id", "section-eaedabf6-38ba-44f1-a35b-cc609938aff1");
+		},
+		m(target, anchor) {
+			insert_hydration(target, div11, anchor);
+			append_hydration(div11, div10);
+			append_hydration(div10, div9);
+			append_hydration(div9, div8);
+			append_hydration(div8, form);
+			append_hydration(form, div7);
+			append_hydration(div7, h2);
+			append_hydration(h2, t0);
+			append_hydration(div7, t1);
+			append_hydration(div7, div0);
+			append_hydration(div0, label);
+			append_hydration(label, t2);
+			append_hydration(label, span0);
+			append_hydration(span0, t3);
+			append_hydration(div0, input0);
+			append_hydration(div0, span1);
+			append_hydration(div7, t4);
+			append_hydration(div7, div3);
+			append_hydration(div3, div1);
+			append_hydration(div3, t5);
+			append_hydration(div3, div2);
+			append_hydration(div7, t6);
+			append_hydration(div7, div4);
+			append_hydration(div4, t7);
+			append_hydration(div4, input1);
+			append_hydration(div7, t8);
+			append_hydration(div7, div6);
+			append_hydration(div6, div5);
+			append_hydration(div5, input2);
+			append_hydration(div5, t9);
+			append_hydration(div5, p);
+			append_hydration(p, a);
+			append_hydration(a, span2);
+			append_hydration(div9, t10);
+			append_hydration(div9, script0);
+			append_hydration(div9, script1);
+			append_hydration(script1, t11);
+		},
+		p: noop,
+		i: noop,
+		o: noop,
+		d(detaching) {
+			if (detaching) detach(div11);
+		}
+	};
+}
+
 class Component$6 extends SvelteComponent {
+	constructor(options) {
+		super();
+		init(this, options, null, create_fragment$6, safe_not_equal, {});
+	}
+}
+
+/* generated by Svelte v3.58.0 */
+
+class Component$7 extends SvelteComponent {
 	constructor(options) {
 		super();
 		init(this, options, null, null, safe_not_equal, {});
@@ -3238,7 +3573,7 @@ class Component$6 extends SvelteComponent {
 
 /* generated by Svelte v3.58.0 */
 
-function create_fragment$6(ctx) {
+function create_fragment$7(ctx) {
 	let component_0;
 	let t0;
 	let component_1;
@@ -3250,6 +3585,8 @@ function create_fragment$6(ctx) {
 	let component_4;
 	let t4;
 	let component_5;
+	let t5;
+	let component_6;
 	let current;
 	component_0 = new Component({});
 	component_1 = new Component$1({});
@@ -3318,6 +3655,7 @@ function create_fragment$6(ctx) {
 		});
 
 	component_5 = new Component$6({});
+	component_6 = new Component$7({});
 
 	return {
 		c() {
@@ -3332,6 +3670,8 @@ function create_fragment$6(ctx) {
 			create_component(component_4.$$.fragment);
 			t4 = space();
 			create_component(component_5.$$.fragment);
+			t5 = space();
+			create_component(component_6.$$.fragment);
 		},
 		l(nodes) {
 			claim_component(component_0.$$.fragment, nodes);
@@ -3345,6 +3685,8 @@ function create_fragment$6(ctx) {
 			claim_component(component_4.$$.fragment, nodes);
 			t4 = claim_space(nodes);
 			claim_component(component_5.$$.fragment, nodes);
+			t5 = claim_space(nodes);
+			claim_component(component_6.$$.fragment, nodes);
 		},
 		m(target, anchor) {
 			mount_component(component_0, target, anchor);
@@ -3358,6 +3700,8 @@ function create_fragment$6(ctx) {
 			mount_component(component_4, target, anchor);
 			insert_hydration(target, t4, anchor);
 			mount_component(component_5, target, anchor);
+			insert_hydration(target, t5, anchor);
+			mount_component(component_6, target, anchor);
 			current = true;
 		},
 		p: noop,
@@ -3369,6 +3713,7 @@ function create_fragment$6(ctx) {
 			transition_in(component_3.$$.fragment, local);
 			transition_in(component_4.$$.fragment, local);
 			transition_in(component_5.$$.fragment, local);
+			transition_in(component_6.$$.fragment, local);
 			current = true;
 		},
 		o(local) {
@@ -3378,6 +3723,7 @@ function create_fragment$6(ctx) {
 			transition_out(component_3.$$.fragment, local);
 			transition_out(component_4.$$.fragment, local);
 			transition_out(component_5.$$.fragment, local);
+			transition_out(component_6.$$.fragment, local);
 			current = false;
 		},
 		d(detaching) {
@@ -3392,15 +3738,17 @@ function create_fragment$6(ctx) {
 			destroy_component(component_4, detaching);
 			if (detaching) detach(t4);
 			destroy_component(component_5, detaching);
+			if (detaching) detach(t5);
+			destroy_component(component_6, detaching);
 		}
 	};
 }
 
-class Component$7 extends SvelteComponent {
+class Component$8 extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, null, create_fragment$6, safe_not_equal, {});
+		init(this, options, null, create_fragment$7, safe_not_equal, {});
 	}
 }
 
-export default Component$7;
+export default Component$8;
